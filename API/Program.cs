@@ -21,6 +21,7 @@ builder.Services.AddIdentityInfraestructure(builder.Configuration)
 
 builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("Email"));
 
+
 var app = builder.Build();
 
 

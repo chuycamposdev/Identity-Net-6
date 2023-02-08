@@ -12,7 +12,7 @@ using Tickets.Application.Models;
 
 namespace Tickets.Application.Features.Account.Commands.RegisterUser
 {
-    public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, ResponseModel<bool>>
+    public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, ResponseModel>
     {
         private readonly IAccountService _accountService;
         private readonly EmailFacade _emailFacade;
@@ -23,7 +23,7 @@ namespace Tickets.Application.Features.Account.Commands.RegisterUser
             _emailFacade = emailFacade;
         }
 
-        public async Task<ResponseModel<bool>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
+        public async Task<ResponseModel> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
             var registerModel = new RegisterModel(request.FirstName, request.LastName, request.Email,
                                                     request.PhoneNumber, request.Password);
@@ -32,7 +32,7 @@ namespace Tickets.Application.Features.Account.Commands.RegisterUser
             string confirmationToken = await _accountService.GenerateConfirmationTokenAsync(userId);
             await _emailFacade.SendRegistrationEmailAsync(registerModel.Email, registerModel.FirstName, confirmationToken);
 
-            return new ResponseModel<bool>(true);
+            return new ResponseModel();
         }
     }
 }

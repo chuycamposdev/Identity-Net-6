@@ -8,7 +8,7 @@ using Tickets.Application.Models;
 
 namespace Tickets.Application.Features.Account.Commands.RegisterUser
 {
-    public class RegisterUserCommand : IRequest<ResponseModel<bool>>
+    public class RegisterUserCommand : IRequest<ResponseModel>
     {
         public string FirstName { get; set; } = default!;
         public string LastName { get; set; } = default!;

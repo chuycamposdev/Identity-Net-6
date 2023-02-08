@@ -9,6 +9,7 @@ namespace API.Middlewares
     {
         private readonly RequestDelegate _next;
         private readonly ILogger<ExceptionHandlingMiddleware> _logger;
+
         public ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
         {
             _next = next;
@@ -26,12 +27,13 @@ namespace API.Middlewares
                 await HandleExceptionAsync(httpContext, ex);
             }
         }
+
         private async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             context.Response.ContentType = "application/json";
             var response = context.Response;
 
-            var responseModel = new ResponseModel<string>(exception?.Message);
+            var responseModel = new ResponseModel(exception?.Message);
             switch (exception)
             {
                 case ApiException e:
@@ -39,6 +41,9 @@ namespace API.Middlewares
                     break;
                 case KeyNotFoundException ex:
                     response.StatusCode = (int)HttpStatusCode.NotFound;
+                    break;
+                case ValidationException ex:
+                        responseModel.Errors = ex.Errors;
                     break;
                 default:
                     response.StatusCode = (int)HttpStatusCode.InternalServerError;

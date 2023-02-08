@@ -6,24 +6,19 @@ using System.Threading.Tasks;
 
 namespace Tickets.Application.Models
 {
-    public class ResponseModel<T>
+    public class ResponseModel
     {
         public bool Succeeded { get; set; } = true;
         public string? Message { get; set; }
         public List<string> Errors { get; set; } = new List<string>();
-        public T? Data { get; set; }
+    
 
         public ResponseModel()
         {
         }
 
-        public ResponseModel(T? data, string? message = "")
-        {
-            Message = message;
-            Data = data;
-        }
-
-        public ResponseModel(string? message)
+        //It should by invoked just for middleware exception
+        public ResponseModel(string message)
         {
             Succeeded = false;
             Message = message;
