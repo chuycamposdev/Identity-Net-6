@@ -15,7 +15,7 @@ namespace Tickets.Infraestructure.Identity
     {
         public DbSet<RefreshToken> RefeshToken { get; set; }
 
-        public TicketDBContext(DbContextOptions options) : base(options)
+        public TicketDBContext(DbContextOptions<TicketDBContext> options) : base(options)
         {
         }
 

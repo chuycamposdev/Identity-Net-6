@@ -33,24 +33,24 @@ namespace API.Middlewares
             context.Response.ContentType = "application/json";
             var response = context.Response;
 
-            var responseModel = new ResponseModel(exception?.Message);
+            var operationResult =  OperationResult.Error(exception?.Message);
             switch (exception)
             {
                 case ApiException e:
-                    response.StatusCode = (int)HttpStatusCode.BadRequest;
                     break;
-                case KeyNotFoundException ex:
+                case NotFoundException ex:
                     response.StatusCode = (int)HttpStatusCode.NotFound;
                     break;
                 case ValidationException ex:
-                        responseModel.Errors = ex.Errors;
+                    operationResult.Errors = ex.Errors;
+                    response.StatusCode = (int)HttpStatusCode.BadRequest;
                     break;
                 default:
                     response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     break;
             }
 
-            var result = JsonSerializer.Serialize(responseModel);
+            var result = JsonSerializer.Serialize(operationResult);
             await context.Response.WriteAsync(result);
         }
     }

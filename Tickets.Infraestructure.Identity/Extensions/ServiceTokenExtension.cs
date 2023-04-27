@@ -64,14 +64,14 @@ namespace Tickets.Infraestructure.Identity.Extensions
                          context.HandleResponse();
                          context.Response.StatusCode = 401;
                          context.Response.ContentType = "application/json";
-                         var result = JsonSerializer.Serialize(new ResponseModel(message: "You are not authorized to access the application"));
+                         var result = JsonSerializer.Serialize(OperationResult.Error("You are not authorized to access the application"));
                          return context.Response.WriteAsync(result);
                      },
                      OnForbidden = context =>
                      {
                          context.Response.StatusCode = 403;
                          context.Response.ContentType = "application/json";
-                         var result = JsonSerializer.Serialize(new ResponseModel(message: "You are not authorized to access this resource"));
+                         var result = JsonSerializer.Serialize(OperationResult.Error("You are not authorized to access this resource"));
                          return context.Response.WriteAsync(result);
                      },
                  };

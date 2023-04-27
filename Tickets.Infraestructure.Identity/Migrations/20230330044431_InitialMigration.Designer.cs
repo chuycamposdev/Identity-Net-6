@@ -12,7 +12,7 @@ using Tickets.Infraestructure.Identity;
 namespace Tickets.Infraestructure.Identity.Migrations
 {
     [DbContext(typeof(TicketDBContext))]
-    [Migration("20221010223519_InitialMigration")]
+    [Migration("20230330044431_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,15 +53,15 @@ namespace Tickets.Infraestructure.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4f4285e8-9a91-474d-a54c-090c177e73b3",
-                            ConcurrencyStamp = "59a49a4b-c63f-4e4e-875f-e11a159e2193",
+                            Id = "b554da6b-57a9-4b20-bd2c-da91753fbd2a",
+                            ConcurrencyStamp = "dd53facb-10ae-405d-96aa-317c61f68602",
                             Name = "ADMINISTRATOR",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "64d6089c-dd67-415e-8b36-da02a919ad2b",
-                            ConcurrencyStamp = "3a4da3df-a090-4667-8055-3e0db0d756e9",
+                            Id = "9e51b067-75c9-4868-87ec-9c459ca8fc9e",
+                            ConcurrencyStamp = "80391744-b4b5-4cc8-bce0-f4f47b789bb2",
                             Name = "BASIC",
                             NormalizedName = "BASIC"
                         });
@@ -156,18 +156,18 @@ namespace Tickets.Infraestructure.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "210072b4-cc16-43c3-8019-989c2c4308f3",
-                            RoleId = "64d6089c-dd67-415e-8b36-da02a919ad2b"
+                            UserId = "df07cb59-fe32-4ae7-8b40-d97ede61d07d",
+                            RoleId = "9e51b067-75c9-4868-87ec-9c459ca8fc9e"
                         },
                         new
                         {
-                            UserId = "78146496-bcf7-4926-a8ac-a8d272628d31",
-                            RoleId = "64d6089c-dd67-415e-8b36-da02a919ad2b"
+                            UserId = "5435a5d3-f8cf-4e2c-bd5d-56a2ef5b8a50",
+                            RoleId = "9e51b067-75c9-4868-87ec-9c459ca8fc9e"
                         },
                         new
                         {
-                            UserId = "78146496-bcf7-4926-a8ac-a8d272628d31",
-                            RoleId = "4f4285e8-9a91-474d-a54c-090c177e73b3"
+                            UserId = "5435a5d3-f8cf-4e2c-bd5d-56a2ef5b8a50",
+                            RoleId = "b554da6b-57a9-4b20-bd2c-da91753fbd2a"
                         });
                 });
 
@@ -299,34 +299,34 @@ namespace Tickets.Infraestructure.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "210072b4-cc16-43c3-8019-989c2c4308f3",
+                            Id = "df07cb59-fe32-4ae7-8b40-d97ede61d07d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6caf8647-c207-4c07-9166-c1490fb2c687",
+                            ConcurrencyStamp = "d5291075-dfa8-4aff-8638-ef9bfbf6153f",
                             Email = "jesuscampos670@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Basic",
                             LastName = "User",
                             LockoutEnabled = false,
                             NormalizedEmail = "jesuscampos670@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBPCruy8El3y0eeme1kDhuDiowBBQiny8x1XhqcxEYmfsmoP970Vq5BCgXholUTR4A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIDQT6923+ZEmH5Wmzsk2oRz7YqxIc4eNqOWT65KQjvRjzm1vbMBb4BB7J5PdgJW8A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "74cd218f-3178-4aa1-8e87-c7c220d8bf7a",
+                            SecurityStamp = "8a91ac5f-c938-41e7-8ace-cac36660440a",
                             TwoFactorEnabled = false
                         },
                         new
                         {
-                            Id = "78146496-bcf7-4926-a8ac-a8d272628d31",
+                            Id = "5435a5d3-f8cf-4e2c-bd5d-56a2ef5b8a50",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d3f51f79-3fd3-4766-b61c-929d48a2f18b",
+                            ConcurrencyStamp = "06a8506f-e52a-4851-8b2f-fbc13d67c8fd",
                             Email = "superadmin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Jesus",
                             LastName = "Campos",
                             LockoutEnabled = false,
                             NormalizedEmail = "superadmin@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMtRQSM6V5Nzisdb6KGvuGK12RXoUoYP9dWtTPEiVcX98s+yLCBOF+mlN7QNg4zjNg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMA4MaJDAp162Ngd0a8BF5pC+UXf+1Bq3J/3Hg+iDXASUABWlqGzGu3BPv4cJyBrWA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c55a0c6d-06ad-4524-bd00-458184460f2a",
+                            SecurityStamp = "189e17b1-737c-4a2a-ba89-8c2bf2f52e17",
                             TwoFactorEnabled = false
                         });
                 });

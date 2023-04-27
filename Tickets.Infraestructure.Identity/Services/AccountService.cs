@@ -37,8 +37,8 @@ namespace Tickets.Infraestructure.Identity.Services
         public async Task<string> RegisterAccountAsync(RegisterModel request)
         {
             var userExists = await _userManager.FindByEmailAsync(request.Email);
-            if (userExists != null)
-                throw new ApiException("User already exists");
+            //if (userExists != null)
+            //    throw new ApiException("User already exists");
             ApplicationUser user = _mapper.Map<ApplicationUser>(request);
             var result = await _userManager.CreateAsync(user, request.Password);
 

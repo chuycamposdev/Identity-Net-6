@@ -33,7 +33,7 @@ namespace API.Controllers
         }
 
         [HttpGet("BASIC")]
-        [Authorize(Roles = "BASIC")]
+        //[Authorize(Roles = "BASIC")]
         public IEnumerable<WeatherForecast> GetBasic()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

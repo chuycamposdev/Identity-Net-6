@@ -13,7 +13,7 @@ namespace API.Extensions
                 {
                     //Just descripting information
                     Title = "Ticket",
-                    Version = "v2",
+                    Version = "v1",
                     Description = "Service authentication for ticket project",
                     Contact = new OpenApiContact
                     {

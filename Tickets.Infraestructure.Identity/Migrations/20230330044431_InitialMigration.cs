@@ -180,8 +180,8 @@ namespace Tickets.Infraestructure.Identity.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4f4285e8-9a91-474d-a54c-090c177e73b3", "59a49a4b-c63f-4e4e-875f-e11a159e2193", "ADMINISTRATOR", "ADMINISTRATOR" },
-                    { "64d6089c-dd67-415e-8b36-da02a919ad2b", "3a4da3df-a090-4667-8055-3e0db0d756e9", "BASIC", "BASIC" }
+                    { "9e51b067-75c9-4868-87ec-9c459ca8fc9e", "80391744-b4b5-4cc8-bce0-f4f47b789bb2", "BASIC", "BASIC" },
+                    { "b554da6b-57a9-4b20-bd2c-da91753fbd2a", "dd53facb-10ae-405d-96aa-317c61f68602", "ADMINISTRATOR", "ADMINISTRATOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -189,24 +189,24 @@ namespace Tickets.Infraestructure.Identity.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "210072b4-cc16-43c3-8019-989c2c4308f3", 0, "6caf8647-c207-4c07-9166-c1490fb2c687", "jesuscampos670@gmail.com", false, "Basic", "User", false, null, "jesuscampos670@gmail.com", null, "AQAAAAEAACcQAAAAEBPCruy8El3y0eeme1kDhuDiowBBQiny8x1XhqcxEYmfsmoP970Vq5BCgXholUTR4A==", null, false, "74cd218f-3178-4aa1-8e87-c7c220d8bf7a", false, null },
-                    { "78146496-bcf7-4926-a8ac-a8d272628d31", 0, "d3f51f79-3fd3-4766-b61c-929d48a2f18b", "superadmin@gmail.com", false, "Jesus", "Campos", false, null, "superadmin@gmail.com", null, "AQAAAAEAACcQAAAAEMtRQSM6V5Nzisdb6KGvuGK12RXoUoYP9dWtTPEiVcX98s+yLCBOF+mlN7QNg4zjNg==", null, false, "c55a0c6d-06ad-4524-bd00-458184460f2a", false, null }
+                    { "5435a5d3-f8cf-4e2c-bd5d-56a2ef5b8a50", 0, "06a8506f-e52a-4851-8b2f-fbc13d67c8fd", "superadmin@gmail.com", false, "Jesus", "Campos", false, null, "superadmin@gmail.com", null, "AQAAAAEAACcQAAAAEMA4MaJDAp162Ngd0a8BF5pC+UXf+1Bq3J/3Hg+iDXASUABWlqGzGu3BPv4cJyBrWA==", null, false, "189e17b1-737c-4a2a-ba89-8c2bf2f52e17", false, null },
+                    { "df07cb59-fe32-4ae7-8b40-d97ede61d07d", 0, "d5291075-dfa8-4aff-8638-ef9bfbf6153f", "jesuscampos670@gmail.com", false, "Basic", "User", false, null, "jesuscampos670@gmail.com", null, "AQAAAAEAACcQAAAAEIDQT6923+ZEmH5Wmzsk2oRz7YqxIc4eNqOWT65KQjvRjzm1vbMBb4BB7J5PdgJW8A==", null, false, "8a91ac5f-c938-41e7-8ace-cac36660440a", false, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "64d6089c-dd67-415e-8b36-da02a919ad2b", "210072b4-cc16-43c3-8019-989c2c4308f3" });
+                values: new object[] { "9e51b067-75c9-4868-87ec-9c459ca8fc9e", "5435a5d3-f8cf-4e2c-bd5d-56a2ef5b8a50" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "4f4285e8-9a91-474d-a54c-090c177e73b3", "78146496-bcf7-4926-a8ac-a8d272628d31" });
+                values: new object[] { "b554da6b-57a9-4b20-bd2c-da91753fbd2a", "5435a5d3-f8cf-4e2c-bd5d-56a2ef5b8a50" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "64d6089c-dd67-415e-8b36-da02a919ad2b", "78146496-bcf7-4926-a8ac-a8d272628d31" });
+                values: new object[] { "9e51b067-75c9-4868-87ec-9c459ca8fc9e", "df07cb59-fe32-4ae7-8b40-d97ede61d07d" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

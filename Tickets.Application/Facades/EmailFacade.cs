@@ -24,7 +24,6 @@ namespace Tickets.Application.Facades
         }
 
         public async Task SendRegistrationEmailAsync(string email, string username, string confirmationToken)
-        
         {
             string message = SetRegistrationEmailTemplate();
             message = message.Replace("{{UserName}}", username);

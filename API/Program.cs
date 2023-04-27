@@ -6,6 +6,7 @@ using Tickets.Domain.Settings;
 using Tickets.Infraestructure.Identity.Extensions;
 using Microsoft.Extensions.Configuration;
 using Tickets.Infraestructure.Shared.Extensions;
+using Tickets.Infraestructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddIdentityInfraestructure(builder.Configuration)
                 .AddSharedInfraestructure()
                 .AddApplicationLayer(builder.Configuration)
+                .AddPersistenceLayer(builder.Configuration)
                 .AddEndpointsApiExplorer()
                 .ConfigureSwagger();
 
