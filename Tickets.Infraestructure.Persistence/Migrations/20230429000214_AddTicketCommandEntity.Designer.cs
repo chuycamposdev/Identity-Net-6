@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tickets.Infraestructure.Persistence;
 
@@ -11,9 +12,10 @@ using Tickets.Infraestructure.Persistence;
 namespace Tickets.Infraestructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230429000214_AddTicketCommandEntity")]
+    partial class AddTicketCommandEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +35,7 @@ namespace Tickets.Infraestructure.Persistence.Migrations
                     b.Property<DateTime>("FechaCreacion")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 11, 17, 59, 16, 609, DateTimeKind.Local).AddTicks(2211));
+                        .HasDefaultValue(new DateTime(2023, 4, 28, 19, 2, 13, 917, DateTimeKind.Local).AddTicks(3604));
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -55,8 +57,7 @@ namespace Tickets.Infraestructure.Persistence.Migrations
 
                     b.Property<string>("Comment")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TicketId")
                         .HasColumnType("int");
@@ -65,13 +66,13 @@ namespace Tickets.Infraestructure.Persistence.Migrations
 
                     b.HasIndex("TicketId");
 
-                    b.ToTable("TicketComment", (string)null);
+                    b.ToTable("TicketComment");
                 });
 
             modelBuilder.Entity("Tickets.Domain.Entities.TicketComment", b =>
                 {
                     b.HasOne("Tickets.Domain.Entities.Ticket", "Ticket")
-                        .WithMany("TicketComments")
+                        .WithMany("Tickets")
                         .HasForeignKey("TicketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -81,7 +82,7 @@ namespace Tickets.Infraestructure.Persistence.Migrations
 
             modelBuilder.Entity("Tickets.Domain.Entities.Ticket", b =>
                 {
-                    b.Navigation("TicketComments");
+                    b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618
         }

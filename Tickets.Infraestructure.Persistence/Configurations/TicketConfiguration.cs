@@ -9,8 +9,8 @@ namespace Tickets.Infraestructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Ticket> builder)
         {
             builder.ToTable(nameof(Ticket));
-            builder.HasKey(t => t.Id);
-            builder.Property(e => e.Id).ValueGeneratedOnAdd();
+            builder.HasKey(t => t.TicketId);
+            builder.Property(e => e.TicketId).ValueGeneratedOnAdd();
             builder.Property(t => t.Nombre).IsRequired().HasMaxLength(250);
             builder.Property(t => t.FechaCreacion).IsRequired().HasDefaultValue(DateTime.Now);
         }

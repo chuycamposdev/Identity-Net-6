@@ -11,7 +11,7 @@ namespace Tickets.Application.Interfaces.Repositories
     {
         T GetById(object id);
 
-        public IEnumerable<T> GetByCondition(
+        public IQueryable<T> GetByCondition(
         Expression<Func<T, bool>> filter = null,
         Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
         string includeProperties = "");

@@ -27,7 +27,7 @@ namespace Tickets.Application.Features.Ticket.Commands.GetTicketById
 
         public async Task<OperationResult<TicketDto>> Handle(GetTicketByIdQuery request, CancellationToken cancellationToken)
         {
-            var ticket = _ticketRepository.GetByCondition(x => x.Id == request.Id).FirstOrDefault();
+            var ticket = _ticketRepository.GetByCondition(x => x.TicketId == request.Id).FirstOrDefault();
             if (ticket == null)
                 throw new NotFoundException();
             var ticketDto = _mapper.Map<TicketDto>(ticket);

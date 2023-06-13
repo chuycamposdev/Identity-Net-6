@@ -14,6 +14,11 @@ namespace Tickets.Application.Mapping
         public AutoMapperProfile()
         {
             CreateMap<Ticket, TicketDto>();
+
+            CreateMap<TicketComment, TicketCommentDto>()
+                .ForMember(dest => dest.TicketName, opt => opt.MapFrom(x => x.Ticket.Nombre))
+                .ForMember(dest => dest.TicketCommentId, opt => opt.MapFrom(x => x.TicketCommentId))
+                .ForMember(dest => dest.Comment, opt => opt.MapFrom(x => x.Comment));
         }
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Tickets.Application.Features.Ticket.Commands.AddTicket;
 using Tickets.Application.Features.Ticket.Commands.GetTicketById;
 using Tickets.Application.Features.Ticket.Commands.UpdateTicket;
+using Tickets.Application.Features.Ticket.Queries.GetCommentsByTicketId;
 
 namespace API.Controllers
 {
@@ -18,6 +19,13 @@ namespace API.Controllers
         {
             var query = new GetTicketByIdQuery{ Id = id};
             return Ok(await Mediator.Send(query));  
+        }
+
+        [HttpGet("GetCommentsByTicketId/{id}")]
+        public async Task<IActionResult> GetCommentsByTicketId(int id)
+        {
+            var query = new GetCommentsByTicketIdQuery { TicketId = id };
+            return Ok(await Mediator.Send(query));
         }
 
         [HttpPost]

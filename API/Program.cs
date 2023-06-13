@@ -7,6 +7,8 @@ using Tickets.Infraestructure.Identity.Extensions;
 using Microsoft.Extensions.Configuration;
 using Tickets.Infraestructure.Shared.Extensions;
 using Tickets.Infraestructure.Persistence;
+using Tickets.Infraestructure.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,5 +48,16 @@ app.UseAuthorization();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<TicketDBContext>();
+    if (context.Database.GetPendingMigrations().Any())
+    {
+        context.Database.Migrate();
+    }
+}
 
 app.Run();

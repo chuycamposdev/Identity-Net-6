@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Tickets.Domain.Entities
 {
-    public class Ticket
+    public class TicketComment
     {
+        public int TicketCommentId { get; set; }
+        public string Comment { get; set; } = null!;
         public int TicketId { get; set; }
-        public string Nombre { get; set; }
-        public DateTime FechaCreacion { get; set; }
-        public List<TicketComment> TicketComments { get; set; }
+        public Ticket Ticket { get; set; }
     }
 }

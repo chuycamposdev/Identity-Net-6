@@ -25,7 +25,7 @@ namespace Tickets.Infraestructure.Persistence.Repositories
             return _dbSet.Find(id);
         }
 
-        public IEnumerable<T> GetByCondition(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = "")
+        public IQueryable<T> GetByCondition(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = "")
         {
             IQueryable<T> query = _dbSet;
 
@@ -43,14 +43,13 @@ namespace Tickets.Infraestructure.Persistence.Repositories
                 }
             }
 
-
             if (orderBy != null)
             {
-                return orderBy(query).ToList();
+                return orderBy(query).AsNoTracking();
             }
             else
             {
-                return query.AsNoTracking().ToList();
+                return query.AsNoTracking();
             }
         }
 
