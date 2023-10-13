@@ -14,6 +14,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+// Allow CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyAllowedOrigins",
+        policy =>
+        {
+            policy.AllowAnyOrigin() // note the port is included 
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
 builder.Services.AddControllers();
 
 builder.Services.AddIdentityInfraestructure(builder.Configuration)
@@ -28,6 +40,7 @@ builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("Email
 
 var app = builder.Build();
 
+app.UseCors("MyAllowedOrigins");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
