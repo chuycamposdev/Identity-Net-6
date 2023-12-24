@@ -35,9 +35,6 @@ namespace Tickets.Application.Facades
         private string SetRegistrationEmailTemplate()
         {
             string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _accountSetting.RegisterPathTemplate);
-            string assemblyPath = Assembly.GetExecutingAssembly().Location;
-            string aseembly = AppDomain.CurrentDomain.BaseDirectory;
-            string eee = AppContext.BaseDirectory;
             string emailBody = File.ReadAllText(fullPath);
             return emailBody;
         }
